@@ -13,7 +13,7 @@ class Tokenizer {
     }
 
     tokenize(sentence) {
-        return sentence.trim().split(/\s+/);
+        return sentence.match(/\w+|[^\w\s]/g) || [];
     }
 
     learnVocab(word) {
@@ -22,14 +22,12 @@ class Tokenizer {
             this.wordsMap[word] = key;
             this.reverseMap[key] = word;
         }
-        console.log(this.reverseMap);
-
     }
 
     generateUniqueKey(word) {
         let hash = 0;
         for (let i = 0; i < word.length; i++) {
-            hash = (hash * 31 + word.charCodeAt(i)) % 50000;
+            hash = (hash * 31 + word.charCodeAt(i)) % 10000;
         }
         while (this.reverseMap[hash]) {
             hash = (hash + 1) % 50000;
