@@ -1,5 +1,7 @@
 # Simple JavaScript Tokenizer
 
+[Live Link](https://tokenizer-rosy.vercel.app/)
+
 A minimal tokenizer implementation in JavaScript that:
 - Learns vocabulary from user input
 - Generates unique numeric keys for words (max value 50000)
